@@ -1,0 +1,93 @@
+body {
+  font-family:'Times New Roman', Times, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+
+
+th{
+  font-family:'Times New Roman', Times, serif;
+  font-size: 18px;
+  
+  text-align: Center;
+  background-color: rgb(202, 195, 195);
+}
+.login{
+  margin-top: 50px;
+  margin-left:200px;
+  width:300px;
+  height:100px;
+ 
+ 
+}
+.loginbutton{
+  width:100%;
+  height:30px;
+  background-color: blue;
+  color:white
+}
+.loginimg
+{
+  margin-top: -50px;
+  margin-left:600px;
+}
+.registerheader{
+  height:50px;
+  width:700px;
+  background-color: black;
+  color:white;
+
+}
+.header{
+  
+  background-color:black;;
+  font-size:40;
+  color:white;
+  height:50px;  
+}
+.register{
+  
+  width:100%;
+  
+  color:gray;
+  
+  padding: 10px 100px 50px 50px;
+  
+}
+.buttonRegister{
+  width:700px;
+  height:30px;
+  background-color: blue;
+  color:white
+}
+.textboxstyle{
+  width:700px;
+  height:30px;
+}
+.header{
+  
+ 
+  font-size:40;
+  color:blue;
+  height:50px;  
+}
+.header ul li{
+  margin-left:50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display:inline-block;
+}
+.eventview{
+  margin-left: 100px;
+  margin-top: 500px;
+}
+td{
+  font-size: 20px;
+  margin-left: 100px;
+  color:black
+}
+LINK{
+  font-weight: bold;
+}
