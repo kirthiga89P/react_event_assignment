@@ -4,7 +4,7 @@ from userDetail.models import user
 from django.utils.translation import gettext_lazy as _
 # Create your models here.
 
-  
+#To store Event Details  
 class EventDetails(models.Model):
     event_name=models.CharField(max_length=500,null=False) 
     user=models.ForeignKey(user,null=False,on_delete=models.CASCADE)
@@ -13,7 +13,7 @@ class EventDetails(models.Model):
     time=models.CharField(max_length=250,null=False)    
     image=models.ImageField(upload_to='images/',null=False)      
 
-
+#To store Event Liked by User details
 class eventUser(models.Model):    
     EventDetails = models.ForeignKey(EventDetails,on_delete=models.CASCADE,blank=False)
     user=models.ForeignKey(user,null=False,on_delete=models.CASCADE)   
