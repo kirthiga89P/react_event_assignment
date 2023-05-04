@@ -9,6 +9,7 @@ from rest_framework.permissions import AllowAny
 
 # Create your views here.
 class User_Detail:
+    #To get the User id of the login User
     def get_user_id(request):
         user_id=0
         
@@ -17,7 +18,7 @@ class User_Detail:
             user_id=i.get('user_id')
         return user_id
 class EventCreateJsonDBView(viewsets.GenericViewSet):  
-   
+   #To create a Event 
     def post(self,request):   
         user_id=User_Detail.get_user_id(request);        
         request.data.update({'user':user_id})           
@@ -28,7 +29,7 @@ class EventCreateJsonDBView(viewsets.GenericViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class EventViewJsonDBView(viewsets.GenericViewSet):
     #permission_classes = [ AllowAny]  
-   
+   #To get the events created by all User
     def get_all(self,request):
         if request.headers.get('authorization') is not None:
             user_id=User_Detail.get_user_id(request);
@@ -43,6 +44,7 @@ class EventViewJsonDBView(viewsets.GenericViewSet):
             serializer = EventviewSerializer(data, context={'request': request}, many=True)        
         return Response(serializer.data)  
     def get_myEvent(self,request):
+        #To get the events created by login User
         if request.headers.get('authorization') is not None:
             user_id=User_Detail.get_user_id(request);
             print(user_id)           
@@ -51,7 +53,7 @@ class EventViewJsonDBView(viewsets.GenericViewSet):
             serializer = EventviewSerializer(data, context={'request': request}, many=True) 
         return Response(serializer.data)   
     def patch(self,request):
-       
+        #To Update the like status by the User
         user_id=User_Detail.get_user_id(request);        
         request.data.update({'user':user_id})
         print(request.data["EventDetails"])
@@ -63,6 +65,7 @@ class EventViewJsonDBView(viewsets.GenericViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
 
     def post(self,request):
+            #To store the like details for the first time
             user_id=User_Detail.get_user_id(request);
            
             data=request.data
@@ -76,6 +79,7 @@ class EventViewJsonDBView(viewsets.GenericViewSet):
                 return Response(serializer.data,status=status.HTTP_201_CREATED)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     def get(self,request,pk):
+        #To get the User already liked that Event or not
         user_id=User_Detail.get_user_id(request);
         data = eventUser.objects.filter(user=user_id,EventDetails_id=pk)
 
